@@ -1,8 +1,14 @@
 {
   "scripts": {
     "start": "node src/app.js",
-    "dev": "nodemon src/app.js"
+    "dev": "nodemon src/app.js",
+    "migrate": "npx sequelize-cli db:migrate",
+    "seed": "npx sequelize-cli db:seed:all"
   },
+  "engines": {
+    "node": "20.x"
+  }
+,
   "dependencies": {
     "bcrypt": "^6.0.0",
     "cors": "^2.8.6",

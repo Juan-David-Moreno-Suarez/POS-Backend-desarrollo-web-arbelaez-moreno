@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
+const PORT = process.env.PORT || 3000;
 
 // Middlewares
 const sanitizeIds = require('../middlewares/sanitizeIds.js');
@@ -36,6 +37,13 @@ app.use(express.json());
 app.use(sanitizeIds);
 
 // ========== RUTAS ==========
+app.get('/authors', (req, res) => {
+  res.json([
+    { nombre: 'Tu Nombre', codigo: '0000001' },
+    { nombre: 'Compañero', codigo: '0000002' },
+  ]);
+});
+
 app.use('/api', authRouter); // /api/login y /api/me
 app.use('/api/categorias', authJwt, requireRole('ADMIN'), categoriasRoutes);
 app.use('/api/productos', productosRoutes);
@@ -55,8 +63,6 @@ app.use(errorHandler);
 
 // ========== INICIAR SERVIDOR ==========
 
-app.listen(PORT, () => {
-  console.log(`Backend corriendo en http://localhost:${PORT}`);
-});
+app.listen(PORT, () => console.log(`Servidor en puerto ${PORT}`));
 
 module.exports = app;
