@@ -1,10 +1,10 @@
 databases:
-  - name: rpg-db
+  - name: pos-backend-db
     plan: free
  
 services:
   - type: web
-    name: rpg-api
+    name: pos-backend-api
     runtime: node
     plan: free
     buildCommand: "npm install && npm run migrate"
