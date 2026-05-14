@@ -38,8 +38,8 @@ app.use(sanitizeIds);
 // ========== RUTAS ==========
 app.get('/authors', (req, res) => {
   res.json([
-    { nombre: 'Tu Nombre', codigo: '0000001' },
-    { nombre: 'Compañero', codigo: '0000002' },
+    { nombre: 'Juan David', codigo: '0000302812' },
+    { nombre: 'Sofía', codigo: '0000335513' },
   ]);
 });
 
